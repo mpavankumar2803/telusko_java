@@ -1,0 +1,414 @@
+CREATE DATABASE college_db;
+USE college_db;
+CREATE TABLE students(
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    dept VARCHAR(20),
+    age INT,
+    salary DOUBLE,
+    grade CHAR(1),city varchar(20));
+);
+INSERT INTO students VALUES
+(101,'Amit','CSE',25,25000,'A'),
+(102,'Rahul','ECE',23,18000,'B'),
+(103,'Sneha','EEE',24,22000,'A'),
+(104,'Aisha','MECH',24,35000,'A'),
+(105,'Kiran','CSE',22,15000,'C'),
+(106,'Neha','CIVIL',23,27000,'B'),
+(107,'Varun','ECE',25,30000,'A'),
+(108,'Pooja','MECH',21,20000,'B'),
+(109,'Arjun','CIVIL',24,29000,'A'),
+(110,'Priya','CSE',22,32000,'A');
+ALTER TABLE students ADD(city varchar(20));
+ 
+UPDATE students SET city='mumbai' WHERE id=102;
+UPDATE students SET city='delhi' WHERE id=104;
+UPDATE students SET city='hyderabad' WHERE id=105;
+UPDATE students SET city='nepal' WHERE id=106;
+UPDATE students SET city='hyderabad' WHERE id=107;
+UPDATE students SET city='kerala' WHERE id=108;
+UPDATE students SET city='kashmir' WHERE id=109;
+SELECT * FROM STUDENTS;
+SELECT city, count(id) FROM students GROUP BY city;
+SELECT city,dept, count(id) FROM students GROUP BY city,dept;
+SELECT city,AVG(salary) FROM students GROUP BY city ORDER BY  city desc;
+SELECT CITY,salary,grade FROM students ORDER BY city asc;
+
+SELECT city, avg(salary) from students GROUP BY city ORDER BY city;
+
+
+
+SELECT city, avg(salary) FROM students GROUP BY city;
+SELECT GRADE,COUNT(ID) FROM STUDENTS GROUP BY GRADE;
+SELECT city,COUNT(*) AS FROM students GROUP BY city WHERE salary >=30000;
+select *from students;
+
+SELECT city, COUNT(*) AS total_students
+FROM students
+WHERE salary >= 30000
+GROUP BY city;
+
+SELECT CITY,COUNT(ID) FROM STUDENTS GROUP BY CITY HAVING max(age)>21;
+
+SELECT GRADE,COUNT(CITY) FROM STUDENTS GROUP BY GRADE;
+SELECT CITY,GRADE FROM STUDENTS
+ WHERE GRADE='A'
+ GROUP BY CITY 
+ HAVING MAX(SALARY)>30000
+ ORDER BY CITY DESC;
+ UPDATE students
+ SET GRADE="O"
+ WHERE GRADE="A";
+ 
+ SET SQL_SAFE_UPDATES = 0;
+
+UPDATE students
+SET GRADE = 'A'
+WHERE GRADE = 'B';
+
+UPDATE students
+SET GRADE = 'B'
+WHERE GRADE = 'C';
+
+SET SQL_SAFE_UPDATES = 1;
+ SELECT *FROM STUDENTS;
+
+ALTER TABLE students
+CHANGE COLUMN name full_name varchar(20);
+SET SQL_SAFE_UPDATES=0;
+DELETE FROM students
+WHERE salary <26000;
+
+ALTER TABLE STUDENTS
+DROP COLUMN GRADE;
+
+
+
+
+
+USE college_db;
+CREATE TABLE  IF NOT EXISTS payments(CUSID INT  PRIMARY KEY, NAME VARCHAR(50),MODE VARCHAR(20),CITY VARCHAR(20));
+INSERT INTO payments VALUES(101, 'Olivia Barrett', 'Netbanking', 'Portland'),
+(102, 'Ethan Sinclair', 'Credit Card', 'Miami'),
+(103, 'Maya Hernandez', 'Credit Card', 'Seattle'),
+(104, 'Liam Donovan', 'Netbanking', 'Denver'),
+(105, 'Sophia Nguyen', 'Credit Card', 'New Orleans'),
+(106, 'Caleb Foster', 'Debit Card', 'Minneapolis'),
+(107, 'Ava Patel', 'Debit Card', 'Phoenix'),
+(108, 'Lucas Carter', 'Netbanking', 'Boston'),
+(109, 'Isabella Martinez', 'Netbanking', 'Nashville'),
+(110, 'Jackson Brooks', 'Credit Card', 'Boston');
+SELECT *FROM PAYMENTS;
+
+SELECT MODE,COUNT(CUSID) FROM PAYMENTS GROUP BY MODE;
+
+
+
+///////////////////// jdbc program to inset data into database //////////////////////////////
+
+package com.telusko.jdbclearning;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		// load and register the driver
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		// Establish connection 
+//		String url = ;
+//		String user=;
+//		String password=;
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbclearning","root","pavan@2803");
+		
+		//creating statement
+		Statement st = con.createStatement();
+		
+		//execute query
+//		String sql=;
+		int rowAffected=st.executeUpdate("INSERT INTO studentinfo(id,sname,sage,scity) VALUES(3,'Ravan',31,'Srilanka')");
+		
+		//process the result
+		if(rowAffected==0) {
+			System.out.print("no changes made");
+		}else {
+			System.out.print("data inserted succesfully");
+		}
+		//close connection
+		st.close();
+		con.close();
+	}
+
+}
+
+					//	(OR) best optimal way without execption
+
+package com.telusko.jdbclearning;
+//import java.util.*;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args){
+		
+		try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbclearning","root","pavan@2803");
+				Statement st=con.createStatement();
+				){
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			String sql="INSERT INTO studentinfo(id,sname,sage,scity) VALUES(3,'harry',30,'delhi')";
+			
+			int roweffected=st.executeUpdate(sql);
+			
+			if(roweffected==0) {
+				System.out.println("no changes made");
+			}else {
+				System.out.print("row is added to the table");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+}
+ 
+
+/////////////////////// jdbc program to retreive the data from data base (create statement) ///////////////////////
+
+package com.telusko.jdbclearning;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		// load and register the driver
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		
+		// Establish connection 
+		String url = "jdbc:mysql://localhost:3306/jdbclearning";
+		String user="root";
+		String password="pavan@2803";
+		Connection con=DriverManager.getConnection(url,user,password);
+		
+		//creating statement
+		Statement st = con.createStatement();
+		
+		//execute query
+		String sql="SELECT * FROM studentinfo";
+		
+		ResultSet rs=st.executeQuery(sql);
+		while(rs.next()){
+		System.out.println(rs.getInt("id")+" "+rs.getString("sname")+" "+rs.getInt("sage")+" "+rs.getString("scity"));
+		}
+		//close connection
+		rs.close();
+		st.close();
+		con.close();
+	}
+
+}
+
+//////////////////// entering the data into data base by user in runtime (prepare statement) ////////////////////////
+package com.telusko.jdbclearning;
+import java.util.*;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args){
+		// load and register the driver
+		Connection connect=null;
+		Statement statement=null;
+		PreparedStatement pstmnt =null;
+		
+		try {
+			connect=JdbcUtil.getConnection();
+			
+			String query="INSERT INTO studentinfo(id,sname,sage,scity) VALUES(?,?,?,?)";
+			pstmnt=connect.prepareStatement(query);
+			
+			System.out.println("please enter the following to be stored in DB");
+			Scanner scan=new Scanner(System.in);
+			System.out.println("Enter your id : ");
+			Integer id=scan.nextInt();
+			
+			System.out.println("Enter your name : ");
+			String sname=scan.next();
+			
+			System.out.println("Enter your age : ");
+			Integer sage=scan.nextInt();
+			
+			System.out.println("Enter your city : ");
+			String scity=scan.next();
+			scan.close();
+			pstmnt.setInt(1, id);
+			pstmnt.setString(2, sname);
+			pstmnt.setInt(3, sage);
+			pstmnt.setString(4, scity);
+			
+			int rowAffected=pstmnt.executeUpdate();
+			
+			if(rowAffected==0) {
+				System.out.println("unable to insert the date");
+			}else {
+				System.out.println("data Inserted successfullyt");
+			}
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				JdbcUtil.closeConnection(connect,pstmnt);
+			}catch(SQLException e){
+				e.printStackTrace(); 
+			}
+		}
+	}
+}
+
+/////////////////////// above function without using the JdbcUtil library by declaring drivers and connection inside the code //////////////
+package com.telusko.jdbclearning;
+import java.util.*;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args){
+		Connection connect=null;
+		PreparedStatement pstmnt=null;
+		Scanner scan=null;
+				
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url="jdbc:mysql://localhost:3306/jdbclearning";
+			String user="root";
+			String password="pavan@2803";
+			connect=DriverManager.getConnection(url,user,password);
+			
+			
+			String query="INSERT INTO studentinfo(id,sname,sage,scity) VALUES(?,?,?,?)";
+			pstmnt=connect.prepareStatement(query);
+			
+			scan=new Scanner(System.in);
+			System.out.println("please enter the following to be stored in DB");
+			System.out.print("Enter your id : ");
+			Integer id=scan.nextInt();
+			
+			System.out.print("Enter your name : ");
+			String sname=scan.next();
+			
+			System.out.print("Enter your age : ");
+			Integer sage=scan.nextInt();
+			
+			System.out.print("Enter your city : ");
+			String scity=scan.next();
+			scan.close();
+			pstmnt.setInt(1, id);
+			pstmnt.setString(2, sname);
+			pstmnt.setInt(3, sage);
+			pstmnt.setString(4, scity);
+			
+			int rowAffected=pstmnt.executeUpdate();
+			
+			if(rowAffected==0) {
+				System.out.println("unable to insert the date");
+			}else {
+				System.out.println("data Inserted successfullyt");
+			}
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmnt != null) pstmnt.close();
+				if(connect != null) connect.close();
+			}catch(SQLException e){
+				e.printStackTrace(); 
+			}
+		}
+	}
+}
+
+
+////// best approach by using |try-with-resources| best way to use try and catch block which also dont need to close the connections in final block if we use this //////
+
+
+package com.telusko.jdbclearning;
+import java.util.*;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args){
+				
+		try(Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbclearning","root" , "pavan@2803");
+			    PreparedStatement pstmnt = connect.prepareStatement("INSERT INTO studentinfo(id,sname,sage,scity) VALUES(?,?,?,?)");
+			    Scanner scan = new Scanner(System.in)) {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("please enter the following to be stored in DB");
+			System.out.print("Enter your id : ");
+			Integer id=scan.nextInt();
+			
+			System.out.print("Enter your name : ");
+			String sname=scan.next();
+			
+			System.out.print("Enter your age : ");
+			Integer sage=scan.nextInt();
+			
+			System.out.print("Enter your city : ");
+			String scity=scan.next();
+			scan.close();
+			pstmnt.setInt(1, id);
+			pstmnt.setString(2, sname);
+			pstmnt.setInt(3, sage);
+			pstmnt.setString(4, scity);
+			
+			int rowAffected=pstmnt.executeUpdate();
+			
+			if(rowAffected==0) {
+				System.out.println("unable to insert the date");
+			}else {
+				System.out.println("data Inserted successfullyt");
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+//////////////////// Batch update used to execute multiple queries at a time /////////////////////////////////
+//////////////  below program changes the age according to the id   ////////////////////
+package com.telusko.jdbclearning;
+import java.util.*;
+import java.sql.*;
+public class LaunchApp1 {
+
+	public static void main(String[] args){
+		
+		try(Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbclearning","root","pavan@2803");
+				PreparedStatement ps=con.prepareStatement("UPDATE studentinfo SET sage=? WHERE id=?");
+						){
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			ps.setInt(1, 21);
+			ps.setInt(2, 1);
+			ps.addBatch();
+			ps.setInt(1, 22);
+			ps.setInt(2, 3);
+			ps.addBatch();
+			ps.setInt(1, 24);
+			ps.setInt(2, 4);
+			ps.addBatch();
+			
+			ps.executeBatch();
+			System.out.println("check the db table to see the result");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

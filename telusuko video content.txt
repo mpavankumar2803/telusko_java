@@ -1,0 +1,336 @@
+Java Masterclass Notes (63 Hours)
+
+Module 1: Java Fundamentals
+Introduction to Java
+JDK, JRE, JVM
+How Java works internally
+Installing JDK and IntelliJ/Eclipse
+Writing the first Java program
+Variables and Literals
+Primitive Data Types
+Type Conversion & Casting
+Operators (Arithmetic, Relational, Logical, Bitwise, Assignment, Unary)
+Naming Conventions
+User Input (Scanner & BufferedReader)
+
+Module 2: Control Statements
+if
+if-else
+else-if
+Nested if
+switch
+Enhanced switch
+Ternary Operator
+while loop
+do-while
+for loop
+Enhanced for loop
+Nested loops
+break
+continue
+
+Module 3: Methods
+Creating methods
+Parameters
+Return types
+Method Overloading
+Varargs
+Recursion
+
+Module 4: Arrays
+1D Arrays
+2D Arrays
+Jagged Arrays
+Array of Objects
+Enhanced for loop
+Arrays Utility Class
+
+Module 5: Object-Oriented Programming (OOP)
+Classes & Objects
+Class
+Object
+Object Creation
+Memory Allocation (Stack & Heap)
+Constructors
+Default Constructor
+Parameterized Constructor
+Constructor Overloading
+this keyword
+Encapsulation
+private variables
+Getters & Setters
+Data Hiding
+Inheritance
+Single Inheritance
+Multilevel Inheritance
+Hierarchical Inheritance
+super keyword
+Constructor Chaining
+Polymorphism
+Method Overloading
+Method Overriding
+Dynamic Method Dispatch
+Abstraction
+Abstract Classes
+Abstract Methods
+Interfaces
+Interface
+Multiple Inheritance using Interface
+Functional Interface
+Default Methods
+Static Methods
+
+Module 6: Advanced OOP
+Inner Classes
+Anonymous Classes
+Anonymous Inner Class
+Lambda Expressions
+Object Class
+Wrapper Classes
+Auto Boxing
+Auto Unboxing
+final keyword
+enum
+Annotation Basics
+
+Module 7: Strings
+String
+StringBuffer
+StringBuilder
+String Pool
+Immutable Strings
+String Methods
+
+Module 8: Exception Handling
+Exception Hierarchy
+try
+catch
+finally
+throw
+throws
+Multiple catch blocks
+Checked Exceptions
+Unchecked Exceptions
+User-defined Exceptions
+try-with-resources
+
+Module 9: Multithreading
+Process vs Thread
+Thread Lifecycle
+Thread Class
+Runnable Interface
+Lambda with Runnable
+Synchronization
+join()
+sleep()
+isAlive()
+Thread Priority
+Race Conditions
+
+Module 10: Collections Framework
+List
+ArrayList
+LinkedList
+Vector
+Stack
+Set
+HashSet
+LinkedHashSet
+TreeSet
+Queue
+PriorityQueue
+Map
+HashMap
+LinkedHashMap
+TreeMap
+Hashtable
+Other Concepts
+Iterator
+Comparable
+Comparator
+Generics
+Collections Utility Class
+
+Module 11: File Handling
+File Class
+Reading Files
+Writing Files
+BufferedReader
+BufferedWriter
+Serialization
+Deserialization
+
+Module 12: Java 8 Features
+Lambda Expressions
+Functional Interfaces
+Method References
+Stream API
+Optional
+Date & Time API
+
+Module 13: Maven
+Why Maven?
+pom.xml
+Dependencies
+Maven Lifecycle
+Build Process
+Packaging
+Repository
+
+Module 14: Git & GitHub
+Git Installation
+Repository
+Commit
+Branch
+Merge
+Push
+Pull
+GitHub Workflow
+
+Module 15: JDBC
+JDBC Architecture
+MySQL Connection
+DriverManager
+Statement
+PreparedStatement
+CallableStatement
+ResultSet
+CRUD Operations
+Transactions
+Batch Processing
+
+Module 16: Spring Framework
+Spring Introduction
+Dependency Injection (DI)
+Inversion of Control (IoC)
+Spring Beans
+Bean Scopes
+XML Configuration
+Java Configuration
+Annotation-based Configuration
+
+Module 17: Spring Boot
+Spring Boot Introduction
+Spring Initializr
+Auto Configuration
+REST Controllers
+Request Mapping
+Properties
+Dependency Injection
+Layered Architecture
+Controller
+Service
+Repository
+
+Module 18: REST APIs
+REST Architecture
+HTTP Methods
+GET
+POST
+PUT
+DELETE
+JSON
+Path Variables
+Request Parameters
+Request Body
+ResponseEntity
+Postman Testing
+
+Module 19: Spring Data JPA & Hibernate
+ORM
+Hibernate
+Entity
+Repository
+CRUD Repository
+JPA Repository
+Relationships
+One-to-One
+One-to-Many
+Many-to-One
+Many-to-Many
+
+Module 20: Spring Security
+Authentication
+Authorization
+JWT
+Password Encoding
+Login API
+Protected Routes
+
+Module 21: Microservices
+What are Microservices?
+Service Discovery
+API Gateway
+Inter-service Communication
+Load Balancing
+Configuration Server
+
+Module 22: Docker
+Docker Basics
+Docker Images
+Containers
+Dockerfile
+Docker Compose
+Containerizing Spring Boot Applications
+
+Module 23: Deployment
+Build JAR
+Run Spring Boot Application
+Deploy Applications
+Production Considerations
+My recommendation for you
+
+Since I know your goal is to become a Java Backend Developer, you don't need to master everything at once. Focus on this order:
+
+
+✅ Core Java (100%)
+✅ OOP
+✅ Collections
+✅ Exception Handling
+✅ Multithreading
+✅ JDBC + MySQL (you've already started this)
+✅ Maven
+✅ Git & GitHub
+✅ Spring Boot
+✅ REST APIs
+✅ Hibernate/JPA
+✅ Spring Security (JWT)
+✅ Docker
+✅ Microservices
+✅ Build your MockInterview project
+
+Following this sequence will take you from Java fundamentals to the skills expected of a backend developer, while giving you the foundation to build portfolio projects and prepare for interviews.
+
+
+00:00 - Core Java
+13:32:51 - Maven
+15:42:13 - Gradle
+16:13:17 - JUnit
+19:04:46 - Git
+21:05:16 - DSA
+26:12:28 - JDBC
+28:39:36 - Servlets and JSP
+32:08:43 - REST API and Web Services  //01:10:15 summary explanation
+34:43:17 - What Is an ORM Tool?
+34:53:11 - Hibernate
+35:44:49 - Spring Framework
+37:38:20 - Spring REST API Using Spring Boot
+38:55:14 - Spring JDBC
+39:24:38 - Spring Data JPA
+39:55:47 - Project Using Spring Boot MVC
+41:40:32 - Spring Security
+43:36:28 - JWT
+44:40:32 - OAuth2
+44:56:28 - Logging in Java Using Log4j
+46:03:03 - Spring Boot MongoDB Full Project
+47:18:23 - Docker for Java Developers
+49:30:26 - Cloud Deployment
+51:00:41 - Spring AI
+51:47:59 - DeepSeek Open Source Using Ollama and Spring AI
+52:08:08 - Microservices
+54:15:20 - Spring Boot + Kafka
+55:34:32 - Linux
+57:10:25 - Ansible
+58:56:44 - Jenkins
+60:13:33 - Terraform
+😊good luck
