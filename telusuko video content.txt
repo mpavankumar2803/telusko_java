@@ -301,7 +301,6 @@ Since I know your goal is to become a Java Backend Developer, you don't need to 
 
 Following this sequence will take you from Java fundamentals to the skills expected of a backend developer, while giving you the foundation to build portfolio projects and prepare for interviews.
 
-
 00:00 - Core Java
 13:32:51 - Maven
 15:42:13 - Gradle
