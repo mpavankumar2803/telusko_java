@@ -1,0 +1,172 @@
+class pen{
+    String color;
+    String type;
+    
+    public void write(){
+        System.out.print(type+" pen is writtin in "+color);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        // System.out.println("Start small. Ship something.");
+        
+        pen pen1=new pen();
+        
+        pen1.color="blue";
+        pen1.type="ball";
+        pen1.write();
+    }
+}
+----------------------------------------------------------------------
+// Non parameterized constructors in java objects.
+class Pen{
+    String color;
+    String type;
+    
+    public void write(){
+        System.out.println("pen is writtin in");
+    }
+    public void colors(){
+        System.out.println(this.color);
+    }
+}
+class Student{
+    String name;
+    int age;
+    
+    public void details(){
+        System.out.print(this.name+" ");
+        System.out.print(this.age);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        
+        Pen pen1=new Pen();
+        
+        pen1.color="blue";
+        pen1.type="ball";
+        pen1.colors();
+        
+        
+        Pen pen2=new Pen();
+        
+        pen2.color="black";
+        pen2.type="gel";
+        pen2.colors();
+        pen2.write();
+        
+        
+        Student st1=new Student();
+        st1.name="pavan";
+        st1.age=20;
+        st1.details();
+    }
+}
+
+
+o/p:-  	blue
+	black
+	pen is writtin in
+	pavan20
+---------------------------------------------------------------------------------------------------------------
+
+// parameterized constructor in the object and printing the information.
+
+
+class Student{
+    String name;
+    int age;
+    
+    public void details(){
+        System.out.print(this.name+" ");
+        System.out.print(this.age);
+    }
+    Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        
+        Student st1=new Student("pavan",20);
+        st1.details();
+    }
+}
+
+o/p:- pavan 20
+
+--------------------------------------------------------------------------------------------------------------
+
+// copy constructor in java objects oops
+
+class Student{
+    String name;
+    int age;
+    
+    public void details(){
+        System.out.print(this.name+" ");
+        System.out.println(this.age);
+    }
+    Student(Student s1){
+        this.name=s1.name;
+        this.age=s1.age;
+    }
+    Student(){
+        
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        // System.out.println("Start small. Ship something.");
+        Student st1=new Student();
+        st1.name="pavan";
+        st1.age=20;
+        
+        st1.details();
+        
+        
+        Student st2=new Student(st1);
+        st2.details();
+    }
+}
+o/p:- 	pavan 20
+	pavan 20
+--------------------------------------------------------------------------------------------
+
+------------Polymorphism--------
+
+poly- many  morphism-forms
+
+class Student{
+    String name;
+    int age;
+    
+    public void details(String name){
+        System.out.println(name);
+    }
+    public void details(String name,int age){
+        System.out.println(name +" "+age);
+    }
+    public void details(int age){
+        System.out.println(age);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        // System.out.println("Start small. Ship something.");
+        Student st1=new Student();
+        st1.name="pavan";
+        st1.age=20;
+        
+        st1.details(st1.name);
+        st1.details(st1.name,st1.age);
+    }
+}
+
+
+o/p:-	pavan
+	pavan 20
+---------------------------------------------------------------------------------------------------
+------------------Inheritance--------------------

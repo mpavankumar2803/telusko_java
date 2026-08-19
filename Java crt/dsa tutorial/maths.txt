@@ -1,0 +1,22 @@
+a%b==c (c is always 0 to b-1)
+(a+b)%k = (a%k + b%k) % k
+
+4%5=4 (a%b=a // if a<b return always a as result)
+
+(a*b)%k = (a%k * b%K)%k
+
+
+(a-b)%k = (a%k - b%k + k) % k 
+(1-5)%3=> -4%3 // it cannot be done by the compiler so we use the above formula
+
+
+
+
+#2 video (nCR)       /////////////////////
+
+
+->  n(C)R = N!/(R!*(N-R)!) 
+
+-> Given N distinct things; number of ways to select R things from them;(not considering the internal ordering of the R things selected;) 
+
+

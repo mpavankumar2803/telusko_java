@@ -1,0 +1,75 @@
+# C is function oriented programming language.
+# c++ is function oriented + Object oriented programming language.
+# python is function oriented + objected oriented programming language.
+# Java is object oriented programming language
+# Dot net is object oriented programming language.
+
+
+
+wraper classes are 8 in number--
+byte    Byte
+short   short
+int     Integer
+long    long
+char    Character
+float   Floact
+double  Double
+boolean Boolean
+
+
+
+
+# wrapper classe is used to convert primitive data types to objects
+# ,at that time using wrapper classes to convert primitive types into objects and objects into primitive types.
+
+# object oriented principles:
+
+ 	1. class : class is a key word in java. class is a collection of variables and methods. class is a logical, means won't occupy memory.
+ 		class peters{
+ 			varibles;
+ 			methods();
+ 		}
+ 		// ex: Scanner class is a predefined class  contains variables and methods
+
+
+ 	2. Object : Object is like a gateway to acces features (variables & methods) of the class.
+ 		    If we create an object for a class, then memory will allocate for the object so we call object is a physical part.
+ 		    Object memory allocation is depends on class variables.
+
+ 			class peters{
+ 				int a;
+ 				int b;
+ 				}       // peters p=new peters(); // 8 bytes
+
+ 			*).  Scanner:  nextInt()
+ 				       next()
+ 				       nextLine()
+ 				Scanner in=new Scanner(System.in);
+ 				int a=in.nextInt();
+
+
+
+class details{
+int rollno;
+String name;
+int marks;
+
+public void display(){
+System.out.println("My rollno:"+rollno);
+System.out.println("My Name:"+name);
+System.out.println("My marks:"+marks);
+}}
+
+class student{
+public static void main(String[] args){
+Details obj1=new Details();
+obj1.rollno=10;
+obj1.rollno="ram";
+obj1.rollno=70;
+
+obj1.display();
+}
+}}
+
+
+NOTE : non static varibles, methods belongs to objects, static method and static variables belongs to class.
