@@ -20,7 +20,6 @@ class LinkedListDemo{
     }
 }
 
-
 /*
 class Node {
     int data;
